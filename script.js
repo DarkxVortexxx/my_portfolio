@@ -141,12 +141,14 @@ window.addEventListener("scroll", () => {
 
 });
 
-scrollTop.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+if (scrollTop) {
+    scrollTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
-});
+}
 
 
 // SCROLL PROGRESS
