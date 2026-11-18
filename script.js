@@ -18,18 +18,25 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
-// Typing animation
+// Typing Animation
 
 const words = [
-    "Web Developer"
+    "Web Developer",
+    "Python Developer",
+    "Full Stack Developer",
+    "Creative Problem Solver"
 ];
 
 let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
 
+const typing = document.getElementById("typing");
+
 function typeEffect() {
-    const typing = document.getElementById("typing");
+
+    if (!typing) return;
+
     const currentWord = words[wordIndex];
 
     typing.textContent = currentWord.substring(0, charIndex);
@@ -38,10 +45,12 @@ function typeEffect() {
         charIndex++;
         setTimeout(typeEffect, 100);
     }
+
     else if (deleting && charIndex > 0) {
         charIndex--;
         setTimeout(typeEffect, 50);
     }
+
     else {
         deleting = !deleting;
 
